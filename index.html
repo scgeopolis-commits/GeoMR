@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GeoPolis – Geomarketing y geoanálisis de mercado</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F4F2;--surf:#FFFFFF;--ink:#0B0B0C;--mute:#4A4F55;--line:#C9CBCD;--acc:#0A6AA8;--navy:#0B0B0C;--onnavy:#F4F4F2;--cB:#0091D3;--cG:#6BA43A;--cR:#E31B23;--cA:#A7A9AC;--cK:#0B0B0C;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121316;--surf:#1B1D21;--ink:#F4F4F2;--mute:#B5B9BE;--line:#34373C;--acc:#5CC0F0;--navy:#000000;--onnavy:#F4F4F2;--cK:#000000;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121316;--surf:#1B1D21;--ink:#F4F4F2;--mute:#B5B9BE;--line:#34373C;--acc:#5CC0F0;--navy:#000000;--onnavy:#F4F4F2;--cK:#000000;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.55;font-size:17px}
+a{color:var(--acc)}
+.w{max-width:1080px;margin:0 auto;padding:0 24px}
+header .w{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:20px;padding-bottom:20px}
+.logo{font-weight:700;letter-spacing:3px;font-size:15px;color:var(--ink);text-decoration:none}
+.logo small{display:block;font-weight:400;letter-spacing:0;font-size:12px;color:var(--mute)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:var(--mute);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--ink)}
+.hero{padding:56px 0 48px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+h1{font-size:clamp(34px,5.5vw,56px);line-height:1.05;margin:0 0 20px;letter-spacing:-.5px}
+h2{font-size:clamp(26px,3.5vw,36px);line-height:1.15;margin:0 0 12px}
+h3{font-size:20px;margin:0 0 8px}
+.lead{font-size:19px;color:var(--mute);margin:0 0 28px;max-width:560px}
+.btn{display:inline-block;padding:14px 22px;min-height:44px;border-radius:4px;font-weight:600;text-decoration:none;font-size:16px;border:2px solid var(--ink);margin:0 10px 10px 0;cursor:pointer;font-family:inherit}
+.p{background:#0A5A8F;color:#fff;border-color:#0A5A8F}
+.s{background:transparent;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
+.grid i{aspect-ratio:1;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.3) 0 26%,rgba(0,0,0,.12) 27% 31%,transparent 32%),var(--c);border-radius:5px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18),inset 0 0 0 1px rgba(128,128,128,.25)}
+.bar{display:flex;height:8px}.bar i{display:block;height:100%}
+.cap{font-size:13px;color:var(--mute);margin-top:8px}
+section{padding:56px 0;border-top:1px solid var(--line)}
+.eye{font-size:13px;letter-spacing:3px;font-weight:600;color:var(--acc);margin:0 0 8px;text-transform:uppercase}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+.card{position:relative;margin-top:10px;background:var(--surf);border:1px solid var(--line);border-top:6px solid var(--c);padding:28px;border-radius:6px}
+.card::before{content:"";position:absolute;left:24px;top:-16px;width:92px;height:10px;background:radial-gradient(circle at 50% 100%,var(--c) 0 8px,transparent 8.5px) 0 0/46px 10px repeat-x}
+.two .card:nth-child(1){--c:var(--cB)}.two .card:nth-child(2){--c:var(--cR)}
+.card p{margin:0 0 12px;color:var(--mute)}
+.card ul{margin:0;padding-left:20px}
+.card li{margin-bottom:6px}
+.uses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
+.uses div{border-top:5px solid var(--c,var(--ink));padding-top:14px}
+.uses div:nth-child(1),.uses div:nth-child(4){--c:var(--cB)}.uses div:nth-child(2),.uses div:nth-child(5){--c:var(--cR)}.uses div:nth-child(3),.uses div:nth-child(6){--c:var(--cG)}
+.uses p{margin:0;color:var(--mute);font-size:16px}
+.tw{overflow-x:auto;margin-top:28px;border:1px solid var(--line);background:var(--surf)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:16px}
+th,td{padding:14px 16px;text-align:center;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+th small{display:block;font-weight:400;color:var(--mute)}
+td.o{color:var(--mute);font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:28px}
+.steps b{display:inline-block;width:46px;height:46px;line-height:46px;text-align:center;border-radius:7px;font-size:24px;margin-bottom:12px;background:var(--c);color:#fff;box-shadow:inset 0 -4px 0 rgba(0,0,0,.18)}
+.steps div:nth-child(1){--c:var(--cB)}.steps div:nth-child(2){--c:var(--cR)}.steps div:nth-child(3){--c:var(--cG)}.steps div:nth-child(3) b,.steps div:nth-child(4) b{color:#0B0B0C}.steps div:nth-child(4){--c:var(--cA)}
+.steps p{margin:0;color:var(--mute);font-size:16px}
+.band{background:#0A5A8F;color:#fff;padding:28px 24px;margin-top:32px;font-size:18px}
+.sect{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.sect span{border:1px solid var(--line);background:var(--surf);padding:8px 14px;border-radius:999px;font-size:15px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+label{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:600}
+label.f{grid-column:1/-1}
+input,select,textarea{font:inherit;padding:12px;min-height:44px;border:1px solid var(--line);border-radius:4px;background:var(--surf);color:var(--ink)}
+.note{font-size:14px;color:var(--mute);grid-column:1/-1;margin:0}
+footer{padding:32px 0;border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
+@media(max-width:760px){.hero,.two,.uses,.steps,form{grid-template-columns:1fr}.hero{padding-top:32px}}
+</style>
+</head>
+<body>
+<div class="bar" aria-hidden="true"><i style="width:32%;background:var(--cB)"></i><i style="width:28%;background:var(--cA)"></i><i style="width:22%;background:var(--cR)"></i><i style="width:11%;background:var(--cG)"></i><i style="width:7%;background:var(--cK)"></i></div>
+<header><div class="w">
+<a class="logo" href="#">GEOPOLIS<small>Data Science U Science Po</small></a>
+<nav><a href="#servicios">Servicios</a><a href="#niveles">Niveles</a><a href="#metodo">Método</a><a href="#consulta">Consulta</a></nav>
+</div></header>
+
+<main>
+<div class="w hero">
+<div>
+<p class="eye">Geomarketing y geoanálisis de mercado</p>
+<h1>Dónde está tu cliente, zona por zona.</h1>
+<p class="lead">Modelos de potencial de mercado por unidad territorial, con la incertidumbre a la vista, para que tu empresa decida dónde abrir, invertir y enfocar su operación.</p>
+<a class="btn p" href="#consulta">Solicitar una consulta</a><a class="btn s" href="#niveles">Ver qué incluye</a>
+</div>
+<div>
+<div class="grid" id="g" aria-hidden="true"></div>
+<p class="cap">Cada pieza es una zona; juntas arman el panorama. Ilustración.</p>
+</div>
+</div>
+
+<section id="servicios"><div class="w">
+<p class="eye">Servicios</p>
+<h2>Dos líneas, una misma metodología</h2>
+<div class="two">
+<div class="card"><h3>Geomarketing</h3><p>Decisiones sobre tu red de puntos de venta, apoyadas en el territorio.</p>
+<ul><li>Ubicación de nuevas sucursales</li><li>Cobertura y canibalización entre puntos</li><li>Potencial de ventas por zona</li></ul></div>
+<div class="card"><h3>Geoanálisis de mercado</h3><p>Entender la demanda, la oferta y la competencia antes de invertir.</p>
+<ul><li>Mapas de demanda y competencia</li><li>Segmentación territorial de clientes</li><li>Priorización de ventas, publicidad o reparto</li></ul></div>
+</div>
+</div></section>
+
+<section><div class="w">
+<p class="eye">Preguntas que respondemos</p>
+<h2>Decisiones concretas, no solo mapas</h2>
+<div class="uses">
+<div><h3>¿Dónde abro?</h3><p>Comparamos zonas candidatas por potencial y riesgo.</p></div>
+<div><h3>¿Cuánto me quito a mí mismo?</h3><p>Medimos el traslape entre tus sucursales actuales y las nuevas.</p></div>
+<div><h3>¿Cuánto debería vender un punto?</h3><p>Estimamos el rango esperado según su entorno.</p></div>
+<div><h3>¿Dónde está mi competencia?</h3><p>Ubicamos oferta y huecos de mercado por zona.</p></div>
+<div><h3>¿Dónde invierto en publicidad?</h3><p>Priorizamos zonas por afinidad con tu cliente.</p></div>
+<div><h3>¿Qué zonas atiendo primero?</h3><p>Ordenamos el territorio para tu fuerza de ventas o tu reparto.</p></div>
+</div>
+<div class="sect"><span>Retail</span><span>Franquicias</span><span>Restaurantes</span><span>Farmacias</span><span>Banca y servicios financieros</span><span>Desarrolladoras inmobiliarias</span></div>
+</div></section>
+
+<section id="niveles"><div class="w">
+<p class="eye">Niveles de servicio</p>
+<h2>Tres niveles, según lo que necesites decidir</h2>
+<p style="color:var(--mute);margin:0">Empieza por el diagnóstico o pasa directo al potencial. Cada nivel incluye al anterior.</p>
+<div class="tw"><table>
+<thead><tr><th></th><th>Diagnóstico<small>entender el territorio</small></th><th>Potencial<small>anticipar la demanda</small></th><th>Potencial + operación<small>decidir dónde actuar</small></th></tr></thead>
+<tbody>
+<tr><td>Perfil socioeconómico y comercial por zona</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Mapa de competencia y oferta existente</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Potencial de demanda con rangos de incertidumbre</td><td></td><td>✓</td><td>✓</td></tr>
+<tr><td>Escenarios por zona y por tipo de punto</td><td></td><td>✓</td><td>✓</td></tr>
+<tr><td>Calibración con tus ventas</td><td></td><td></td><td>✓</td></tr>
+<tr><td>Priorización de zonas y plan de expansión</td><td></td><td></td><td>✓</td></tr>
+<tr><td>Actualizaciones periódicas</td><td class="o">opcional</td><td class="o">opcional</td><td class="o">opcional</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="metodo"><div class="w">
+<p class="eye">Cómo trabajamos</p>
+<h2>Un proceso en cuatro pasos, documentado de principio a fin</h2>
+<div class="steps">
+<div><b>1</b><h3>Integrar</h3><p>Fuentes públicas (como censo y directorio de negocios del INEGI), información tuya y de competencia, homologadas a la zona.</p></div>
+<div><b>2</b><h3>Modelar</h3><p>Estimamos el potencial de cada zona a partir de casos comparables.</p></div>
+<div><b>3</b><h3>Validar</h3><p>Probamos el modelo contra datos reales y documentamos su error esperado.</p></div>
+<div><b>4</b><h3>Entregar</h3><p>Tablas, mapas y un reporte ejecutivo listos para usar en tu operación.</p></div>
+</div>
+<div class="band">Te entregamos un modelo, no una promesa. Trabajamos con datos públicos e información del cliente; confidencialidad total.</div>
+</div></section>
+
+<section id="consulta"><div class="w">
+<p class="eye">Consulta</p>
+<h2>Cuéntanos tu proyecto</h2>
+<p style="color:var(--mute);margin:0">Con estos datos preparamos una propuesta. Los usaremos solo para responder tu consulta.</p>
+<form id="f">
+<label>Nombre<input name="n" required autocomplete="name"></label>
+<label>Empresa<input name="e" required autocomplete="organization"></label>
+<label>Giro<select name="g"><option>Retail</option><option>Franquicia</option><option>Restaurantes</option><option>Farmacias</option><option>Banca o finanzas</option><option>Inmobiliario</option><option>Otro</option></select></label>
+<label>Ciudad o zona de interés<input name="c"></label>
+<label>Nivel de interés<select name="l"><option>Aún no lo sé</option><option>Diagnóstico</option><option>Potencial</option><option>Potencial + operación</option></select></label>
+<label>Correo o teléfono de contacto<input name="t" required></label>
+<label class="f">¿Qué necesitas decidir?<textarea name="d" rows="4"></textarea></label>
+<div class="f" style="grid-column:1/-1"><button class="btn p" type="submit">Enviar consulta por correo</button><a class="btn s" id="wa" href="#" hidden>Enviar por WhatsApp</a></div>
+<p class="note">Al enviar se abrirá tu aplicación de correo con el mensaje listo. También puedes escribir a <a href="mailto:sc.geopolis@gmail.com">sc.geopolis@gmail.com</a>.</p>
+</form>
+</div></section>
+</main>
+<footer><div class="w">GeoPolis · Data Science U Science Po</div></footer>
+
+<script>
+(function(){
+var g=document.getElementById('g'),h='';
+var N=96,i,j,k=0,col=[];
+var P=[['K',7],['A',27],['B',31],['G',10],['R',21]];
+var seq=[],s=7;for(var p=0;p<P.length;p++)for(j=0;j<P[p][1];j++)seq.push(P[p][0]);
+function r(){s=(s*1664525+1013904223)%4294967296;return s/4294967296}
+for(i=N-1;i>0;i--){j=Math.floor(r()*(i+1));var t=seq[i];seq[i]=seq[j];seq[j]=t;}
+col=seq;
+for(i=0;i<N;i++)h+='<i style="--c:var(--c'+col[i]+')"></i>';
+g.innerHTML=h;
+var WA='';
+var f=document.getElementById('f'),w=document.getElementById('wa');
+function body(){var d=new FormData(f);return 'Nombre: '+d.get('n')+'\nEmpresa: '+d.get('e')+'\nGiro: '+d.get('g')+'\nCiudad o zona: '+d.get('c')+'\nNivel de interés: '+d.get('l')+'\nContacto: '+d.get('t')+'\nQué necesito decidir: '+d.get('d');}
+f.addEventListener('submit',function(e){e.preventDefault();location.href='mailto:sc.geopolis@gmail.com?subject='+encodeURIComponent('Consulta GeoPolis – geomarketing')+'&body='+encodeURIComponent(body());});
+if(WA){w.hidden=false;w.addEventListener('click',function(e){e.preventDefault();window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(body()),'_blank');});}
+})();
+</script>
+</body>
+</html>
